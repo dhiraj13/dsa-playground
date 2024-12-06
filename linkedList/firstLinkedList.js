@@ -84,6 +84,9 @@ class DoublyLinkedList {
     const leader = this.traverseToIndex(index - 1);
     const unwantedNode = leader.next;
     leader.next = unwantedNode.next;
+    if (unwantedNode.next) {
+      unwantedNode.next.prev = leader;
+    }
     this.length--;
     return this.printList();
   }
@@ -95,7 +98,7 @@ myDoublyLinkedList.append(16);
 myDoublyLinkedList.prepend(1);
 myDoublyLinkedList.printList();
 myDoublyLinkedList.insert(1, 99);
-// myDoublyLinkedList.insert(20, 88);
-// myDoublyLinkedList.printList();
-// myDoublyLinkedList.remove(3);
-// myDoublyLinkedList.remove(3);
+myDoublyLinkedList.insert(20, 88);
+myDoublyLinkedList.printList();
+myDoublyLinkedList.remove(3);
+myDoublyLinkedList.remove(3);
